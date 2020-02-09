@@ -1,0 +1,31 @@
+<html lang="ja">
+<head>
+	<meta charset='UTF-8'>
+</head>
+<body>
+	課題研究: <span id='limit'>2020/02/10 17:00:00</span>
+	<br>
+	<h1 style='color: #ff0000;'>あと: <span id='h'>0</span>時間 <span id='m'>0</span>分 <span id='s'>0</span>秒</span></h1>
+	<script>
+		function reload(){
+			let limit = 1581321600000;
+			let now = new Date();
+			//console.log(now.toLocaleString('ja-JP'))
+			let remain = limit - Date.now()
+			var hour = remain/(60*60*1000)
+			hour = Math.floor(hour)
+			var minute = (remain - hour*(60*60*1000))/(60*1000)
+			minute = Math.floor(minute)
+			var second = (remain - hour*(60*60*1000) - minute*(60*1000))/(1000)
+			second = Math.floor(second)
+			console.log("hour:" + hour)
+			console.log("minute:" + minute)
+			console.log("second:" + second)
+			document.getElementById("h").innerText = hour
+			document.getElementById("m").innerText = minute
+			document.getElementById("s").innerText = second
+		}
+		window.setInterval(reload,500)
+	</script>
+</body>
+</html>
